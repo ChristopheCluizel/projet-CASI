@@ -5,6 +5,7 @@ Big data and tweet streaming (Monographie)
 
 ### A0
 
+En tant qu'entreprise de statistiques, la compagnie Twitter Inc nous a demandé d'analyser les tweets d'internautes en temps réel afin de récupérer et d'illustrer le nombre de tweets par jour et par nationalité, ainsi que la taille des tweets en question. Cela leur permettra de mettre en place une infrastructure dynamique pour s'adapter à la charge selon l'heure de la journée. Ce projet a donc pour objectif d'améliorer un processus de développement en fournissant une solution d'analyse en temps réel.
 
 ### A1
 
@@ -48,30 +49,32 @@ Amazon
 
 Amazon.com est une société de commerce électronique. En 2002, elle lance un nouveau produit appelé Amazon Web Services (AWS) permettant d'accèder à des fonctions latentes sur son site web. Ce nouveau produit va être un regroupement de services très utiles pour les entreprises intéressées dans le domaine de la masse de données. Tout d'abord avec Amazon Simple Storage Service (Amazon S3), un service de stockage de fichier volumineux. Il est possible de stocker très facilement des teraoctects de données dans S3 et de les analyser avec Hadoop ou Spark. Puis avec un système de serveurs virtualisé à la demande : Amazon Elastic Compute Cloud (Amazon EC2). Ce service permet de déploier des applications très facilement et de faire évoluer la puissance de calcul nécessaire en fonction du besoin en quelques clics. En 2013, Amazon dévoile Redshift, une base de données de type SQL permettant de traiter des masses de données efficacement. AWS permet aussi avec Amazon Elastic MapReduce (Amazon EMR) de traiter ses données via un cluster Hadoop ou Spark. Les prix très attractifs d'AWS peuvent expliquer l'engouement actuel pour ces technologies car de nombreuses entreprises ont pû se lancer dans des analyses sans investir des sommes astronomiques dans les machines et la configuration des clusters.
 
-N.B. Voir pour le livre blanc
+Smile
+
+[Smile](http://www.smile.fr/) est le leader français de l'intégration de logiciels open-source. Il propose des livres blancs disponibles gratuitement dans de nombreux domaines. Pour notre projet, nous avons choisi le livre blanc ["Search Engines and E-merchandising: The State of the Art"](http://www.smile.fr/Livres-blancs) afin d'illustrer les possibilités des moteurs de recherche. Cet état de l'art ne correspond pas exactement à notre domaine d'application, mais expose plusieurs alternatives que nous aurions pu utiliser pour traiter nos tweet.
 
 ### A5
 
 * Time behavior
 * Resource utilization
-* Stability
+* Installability
 
 ### A6
 
 * Time behavior
-    + Response time
+    + Response time (Internal)
     + Task time
-    + ?
+    + Response time for display on Kibana - unit: second.
 
 * Resource utilization
     + Transmission capacity
     + Number of memory related errors
-    + ?
+    + CPU usage - unit: percentage from total.
 
-* Installability
+* Instability
     + Number of installation steps
-    + Number of setup operations
-    + ?
+    + Number of set-up operations
+    + Number of architectures which can be used as workers for Spark computation - unit: number
 
 ### A7
 
