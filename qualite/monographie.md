@@ -38,8 +38,8 @@ En tant qu'entreprise de statistiques, la compagnie Twitter Inc nous a demandé 
 
 Apache
 
-La fondation Apache est une organisation à but non lucratif dont l'objectif est de développer des logiciels open-source. Le logiciel le plus connu est sans aucun doute le serveur web Apache. Tout projet open-source sous license Apache 2 peut devenir un projet de la fondation Apache après une période d'incubation.
-De nombreux logiciels de traitement de données sont soutenus par la fondation dont Apache Hadoop, Apache Spark, Apache Lucene ou encore Apache Kafka. Les frameworks de calcul Hadoop et Spark sont aujourd'hui les plus utilisés dans le monde de l'analyse de masse de données. Apache Lucene est le moteur d'indexation utilisé par tous les grands projets open-source comme par exemple les moteurs de recherche Apache Solr et ElasticSearch. Apache Kafka est un systène de queue de messages utilisé par plusieurs grandes entreprises comme Linkedin, Netflix ou Spotify.
+La fondation Apache est une organisation à but non lucratif dont l'objectif est de développer des logiciels open-source. Le logiciel le plus connu est sans aucun doute le serveur web Apache. Tout projet open-source sous licence Apache 2 peut devenir un projet de la fondation Apache après une période d'incubation.
+De nombreux logiciels de traitement de données sont soutenus par la fondation dont Apache Hadoop, Apache Spark, Apache Lucene ou encore Apache Kafka. Les frameworks de calcul Hadoop et Spark sont aujourd'hui les plus utilisés dans le monde de l'analyse de masse de données. Apache Lucene est le moteur d'indexation utilisé par tous les grands projets open-source comme par exemple les moteurs de recherche Apache Solr et ElasticSearch. Apache Kafka est un système de queue de messages utilisé par plusieurs grandes entreprises comme Linkedin, Netflix ou Spotify.
 
 Google
 
@@ -47,7 +47,7 @@ Google est actuellement le plus grand moteur de recherche du monde. Son business
 
 Amazon
 
-Amazon.com est une société de commerce électronique. En 2002, elle lance un nouveau produit appelé Amazon Web Services (AWS) permettant d'accèder à des fonctions latentes sur son site web. Ce nouveau produit va être un regroupement de services très utiles pour les entreprises intéressées dans le domaine de la masse de données. Tout d'abord avec Amazon Simple Storage Service (Amazon S3), un service de stockage de fichier volumineux. Il est possible de stocker très facilement des teraoctects de données dans S3 et de les analyser avec Hadoop ou Spark. Puis avec un système de serveurs virtualisé à la demande : Amazon Elastic Compute Cloud (Amazon EC2). Ce service permet de déploier des applications très facilement et de faire évoluer la puissance de calcul nécessaire en fonction du besoin en quelques clics. En 2013, Amazon dévoile Redshift, une base de données de type SQL permettant de traiter des masses de données efficacement. AWS permet aussi avec Amazon Elastic MapReduce (Amazon EMR) de traiter ses données via un cluster Hadoop ou Spark. Les prix très attractifs d'AWS peuvent expliquer l'engouement actuel pour ces technologies car de nombreuses entreprises ont pû se lancer dans des analyses sans investir des sommes astronomiques dans les machines et la configuration des clusters.
+Amazon.com est une société de commerce électronique. En 2002, elle lance un nouveau produit appelé Amazon Web Services (AWS) permettant d’accéder à des fonctions latentes sur son site web. Ce nouveau produit va être un regroupement de services très utiles pour les entreprises intéressées dans le domaine de la masse de données. Tout d'abord avec Amazon Simple Storage Service (Amazon S3), un service de stockage de fichier volumineux. Il est possible de stocker très facilement des teraoctects de données dans S3 et de les analyser avec Hadoop ou Spark. Puis avec un système de serveurs virtualisé à la demande : Amazon Elastic Compute Cloud (Amazon EC2). Ce service permet de déployer des applications très facilement et de faire évoluer la puissance de calcul nécessaire en fonction du besoin en quelques clics. En 2013, Amazon dévoile Redshift, une base de données de type SQL permettant de traiter des masses de données efficacement. AWS permet aussi avec Amazon Elastic MapReduce (Amazon EMR) de traiter ses données via un cluster Hadoop ou Spark. Les prix très attractifs d'AWS peuvent expliquer l'engouement actuel pour ces technologies car de nombreuses entreprises ont pu se lancer dans des analyses sans investir des sommes astronomiques dans les machines et la configuration des clusters.
 
 Smile
 
@@ -55,13 +55,13 @@ Smile
 
 ### A5
 
-* Time behavior
+* Time behaviour
 * Resource utilization
-* Installability
+* Instability
 
 ### A6
 
-* Time behavior
+* Time behaviour
     + Response time (Internal)
     + Task time
     + Response time for display on Kibana - unit: second.
