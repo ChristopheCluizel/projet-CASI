@@ -1,0 +1,171 @@
+% http://asi.insa-rouen.fr/fr/pages/le-stage-de-specialite?language=fr
+% https://intranet.insa-rouen.fr/pilotage-et-organisation-de-letablissement/direction-generale/formations/rubriques/scolarite/guide-du-stage-ingenieur-1/guide-du-stage-ingenieur
+
+\documentclass[12pt]{scrreprt}
+%\pdfminorversion=4 % to avoid the error: "There was a problem reading this document (131)"
+
+% Texte
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel, varioref}
+\usepackage[babel=true]{csquotes}
+\usepackage{color}
+\usepackage{minted}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{afterpage}
+\usepackage[super]{nth}
+\usepackage{amssymb} % pour l'ensemble des réels
+\usepackage[procnames]{listings}
+\usepackage{color}
+\usemintedstyle{trac}
+
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\lstset{
+	language=Python,
+	float=hbp,
+	basicstyle=\ttfamily\small,
+	identifierstyle=\color{colIdentifier},
+	keywordstyle=\bf \color{colKeys},
+	stringstyle=\color{colString},
+	commentstyle=\color{colComments},
+	columns=flexible,
+	tabsize=3,
+	frame=single,
+	frame=shadowbox,
+	rulesepcolor=\color[gray]{0.5},
+	extendedchars=true,
+	showspaces=false,
+	showstringspaces=false,
+	numbers=left,
+	firstnumber=1,
+	numberstyle=\tiny,
+	breaklines=true,
+	backgroundcolor=\color{hellgelb},
+	captionpos=b
+}
+
+\definecolor{colFond}{rgb}{0.8,0.9,0.9}
+\definecolor{hellgelb}{rgb}{1,1,0.8}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{0,0.5,0}
+\definecolor{colString}{rgb}{0.62,0.12,0.94}
+\lstdefinestyle{myTextStyle} {
+	language=TeX,
+	float=hbp,
+	basicstyle=\ttfamily\small,
+	identifierstyle=\color{colIdentifier},
+	keywordstyle=\bf \color{colKeys},
+	stringstyle=\color{colString},
+	commentstyle=\color{colComments},
+	columns=flexible,
+	tabsize=3,
+	frame=single,
+	frame=shadowbox,
+	rulesepcolor=\color[gray]{0.5},
+	extendedchars=true,
+	showspaces=false,
+	showstringspaces=false,
+	numbers=left,
+	firstnumber=1,
+	numberstyle=\tiny,
+	breaklines=true,
+	backgroundcolor=\color{hellgelb},
+	captionpos=b,
+}
+
+%%%%%%%%%%%%%%%%%%%%%
+\usepackage{url}
+\usepackage[top=2.1cm,bottom=2.2cm,left=2cm,right=2cm]{geometry}
+\usepackage[final]{pdfpages}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%% Pour sommaire cliquable %%%%%%%%%%
+\usepackage{hyperref} % Créer des liens et des signets
+\hypersetup{
+	colorlinks=true, %colorise les liens
+	breaklinks=true, %permet le retour à la ligne dans les liens trop longs
+	urlcolor=blue, %couleur des hyperliens
+	linkcolor=black, %couleur des liens internes
+	citecolor=black,  %couleur des références
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Images
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+
+% Tables
+\usepackage{longtable}
+\usepackage{booktabs}
+
+% Couverture
+\usepackage{templateINSA}
+\initINSA
+
+\title{Data scientist}
+\author{Christophe Cluizel}
+
+\renewcommand\infoSmall{Rapport de Stage de Spécialité}
+\renewcommand\soustitre{Optimisation d'un système avancé de recommandation\\pour personnalisation d'e-mailing}
+\renewcommand\infoBig{Christophe Cluizel}
+
+\newcommand{\cc}{AVARI}
+
+% \newenvironment{code}{\captionsetup{type=listing}}{}
+
+\author{
+	\textbf{Étudiant:} Christophe Cluizel\\
+	\textbf{Maître de stage:} Karsten Rieke\\
+	\textbf{Entreprise:} \cc\\
+	\textbf{Années:} 2014-2015 (ASI4)\\
+	\textbf{Dates:} 01/06/15 - 28/08/15\\
+	\textbf{Lieu:} Berlin, Allemagne\\
+}
+
+\newcommand\TODO[1]{\textcolor{red}{\textbf{#1}}}
+
+%% -- Document
+\begin{document}
+	% titleINSA : Page de garde
+	% #1 : descendre le titre du milieu (en mm)
+	% #2 : lien de l'image de fond
+	% #3 : décalage sur X de l'image de fond (en mm)
+	% #4 : décalage sur Y de l'image de fond (en mm)
+	% #5 : largeur de l'image de fond de #5 (en mm)
+	% #6 : Crédit de l'image de fond
+	\titleINSA{8}{images/AVARI-Next-Best-Content-Editor.png}{0}{110}{225}{Licence - AVARI.io}
+
+	% sommaire
+	\renewcommand{\contentsname}{Sommaire}
+	\tableofcontents
+
+	\newpage
+	\chapter{Partie A}
+		\input{src/01.partieA}
+
+  \chapter{Partie B}
+    \input{src/02.partieB}
+
+  \chapter{Partie C}
+    \input{src/03.partieC}
+
+	% Table des figures
+	\listoffigures
+
+	% Bibliographie
+	% \bibliographystyle{abbrv}
+	% \bibliography{src/bibli}
+
+	% Annexes
+	% \appendix
+	% \section*{Annexes}
+	% \input{}
+
+	\pageQuatriemeCouverture{Département ASI}{+33 2 32 95 97 79}{asi@insa-rouen.fr}{}{}
+\end{document}
