@@ -21,23 +21,21 @@
   \subsection{Questions d'amorce}
   \label{sub:Questions d'amorce}
 
-    \paragraph{Grappe de serveurs}
-    \label{par:Grappe de serveurs}
-    Une grappe de serveurs (ou \textit{cluster}) est un regroupement de machines permettant de dépasser les capacités d'une machine. Il existe quatre cas d'utilisation pour une grappe de serveurs.
+    Une grappe de serveurs (ou \textit{cluster}) est un regroupement de machines permettant de dépasser les capacités d'une machine. Il existe quatre cas d'utilisation pour une grappe de serveurs : \\
+
     \begin{description}
       \item[Mise à niveau de l'infrastructure] Ce système permet d'ajouter rapidement de nouveaux serveurs peu puissants et donc peu chers afin d'améliorer les performances. Avec l'utilisation d'une unique machine, l'amélioration peut devenir très coûteuse dans le cas de très grosses configurations.
       \item[Disponibilité de l'infrastructure] La multiplication des machines permet de disposer d'une infrastructure très stable. En effet, dans le meilleur des cas, il n'existe pas de machine maîtresse dans la grappe, il n'y a donc pas de \textit{single point of failure}.
       \item[Répartition de la charge] Il est possible avec une grappe de serveurs de diriger les requêtes de traitement vers le serveur le moins encombré. Si les machines sont situées dans des pays différents, il est également possible d'améliorer les performances (en particulier la latence) en dirigeant l'utilisateur vers la machine la plus proche.
       \item[Mutualisation des ressources] L'un des avantages les plus recherché dans l'utilisation d'une grappe de serveurs est la mutualisation des ressources. Il est en effet possible de créer des machines virtuelles profitant de toutes les ressources de la grappe. Il est nécessaire tout de même de faire attention au réseau entre les serveurs qui peut très vite devenir un goulot d'étranglement.
-    \end{description}
+    \end{description} \bigskip
 
-    \paragraph{L'écosystème Hadoop}
-    \label{par:L'écosystème Hadoop}
-    Apache Hadoop est aujourd'hui le framework de calcul distribué le plus connu. En effet, tout un écosystème de traitement de données s'est développé autour.
+    Apache Hadoop est aujourd'hui le framework de calcul distribué le plus connu. En effet, tout un écosystème de traitement de données s'est développé autour : \\
+
     \begin{description}
-      \item[HDFS] HDFS est le principal composant d'Hadoop, c'est celui qui permet de stocker les données de façon distribuées.
+      \item[HDFS] HDFS est le principal composant d'Hadoop, c'est celui qui permet de stocker les données de façon distribuées.
       \item[HBase] HBase est une base de données distribuée sur HDFS qui s'interface parfaitement avec Hadoop.
-      \item[Hive] Hive est également un outil très utilisé qui permet d'effectuer des requêtes de type SQL sur des données distribuées.
+      \item[Hive] Hive est également un outil très utilisé qui permet d'effectuer des requêtes de type SQL sur des données distribuées.
       \item[Pig] Pig est un outil proche de Hive qui permet d'interroger des données dans un langage spécifique (le Pig Latin).
       \item[Drill] Drill permet d'interroger des données distribuées (HDFS, S3…) et des bases de données NoSQL via des requêtes de type SQL. Il est utile pour sa diversité.
       \item[Impala] Impala permet également de faire des requêtes de type SQL sur des données distribuées. Il est plus rapide que Hive.
@@ -46,8 +44,8 @@
       \item[Giraph] Giraph est un outil d'analyse de graphes (notamment utilisé par Facebook pour l'analyse du réseau social).
       \item[Mesos] Mesos permet d'abstraire les ressources des machines (virtuelles ou physiques). Il fournit une API pour que les outils de l'écosystème Hadoop puissent accéder à ces ressources.
       \item[ZooKeeper] Enfin, ZooKeeper est un outil de gestion de configurations. L'écosystème d'Hadoop étant très diversifié, il est intéressant d'avoir un outil permettant de faire le lien entre tous les autres outils.
-    \end{description}
-    Il existe de nombreux outils dans l'écosystème Hadoop et cette liste n'est pas exhaustive. De nombreux problèmes sont résolus par plusieurs d'entre eux car les solutions présentées sont souvent encore au stade de la recherche. Il est nécessaire de choisir le bon outil tout en sachant que des solutions plus performantes peuvent arriver très rapidement.
+    \end{description} \bigskip
+    Il existe de nombreux outils dans l'écosystème Hadoop et cette liste n'est pas exhaustive. De nombreux problèmes sont résolus par plusieurs d'entre eux car les solutions présentées sont souvent encore au stade de la recherche. Il est nécessaire de choisir le bon outil tout en sachant que des solutions plus performantes peuvent arriver très rapidement. \\
 
     Malgré la forte dominance d'Hadoop, le framework de calcul distribué Apache Spark est aujourd'hui plus rapide et profite d'une plus forte communauté. Apache Spark est également basé sur l'écosystème Hadoop et permet donc de profiter de tous les outils déjà développés. Certains modules natifs de Spark remplacent d'anciens outils comme pour Hive / Spark SQL ou Giraph / Spark GraphX.
 
