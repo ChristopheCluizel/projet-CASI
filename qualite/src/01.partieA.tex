@@ -119,3 +119,23 @@
   \end{enumerate}
 
 \section{A7}
+  Notre projet s'articule autour d'un certain nombre de patterns d'intégration dans le cadre de l'``Entreprise Application Integration'' (EAI), car nous sommes amenés à faire communiquer des applications qui n'ont pas été conçues à la base pour communiquer ensemble ; à savoir l'application de streaming de Twitter et notre programme d'analyse de tweets. \\
+
+  Afin de garantir une rapidité de traitement, le type d'intégration utilisé peut être le ``Distributed Business processes'' (BPM) pour ainsi effectuer les traitements sur plusieurs machines de façon indépendante. C'est par exemple le cas avec Spark qui permet d'effectuer les calculs sur un cluster et donc sur un ensemble de machines à l'aide de ce que l'on appelle le ``map-reduce''. Le ``map'' correspond à la distribution des calculs sur chaque machine et le fait que chaque machine peut effectuer ses calculs indépendamment. Le ``reduce'' correspond au regroupement sur une seule machine des différents résultats calculés sur l'ensemble des machines. \\
+
+  Pour notre projet, nous avons relevé plusieurs patterns qui peuvent s'appliquer à notre cas d'analyse de tweets, regroupés dans différentes catégories ``Entreprise Integration Patterns'' (EIP).
+
+  \subsection{Messaging Systems}
+    \paragraph{Message Channel}
+    \paragraph{Message}
+    \paragraph{Message translator}
+    \paragraph{Message Endpoint}
+
+  \subsection{Message Routing}
+    \paragraph{Aggregator}
+
+  \subsection{Message Endpoints}
+    \paragraph{Polling Consumer}
+
+  \subsection{Message Transformation}
+    \paragraph{Content Filter}
