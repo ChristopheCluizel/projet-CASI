@@ -1,0 +1,18 @@
+\section{B1}
+\label{sec:B1}
+
+Plusieurs approches techniques existent dans le domaine du streaming de données. Nous allons travailler avec des tweets mais il est possible d'appliquer toutes ces techniques dans d'autres domaines.\\
+
+\subsection{Envoi des données pour analyse}
+\label{sub:Envoi des données pour analyse}
+
+  Tout d'abord, la première solution technique existante est l'envoi des données au fur et à mesure de leur arrivée. Dans notre cas : Twitter envoie chaque tweets au fur et à mesure de leur émission sur ce que l'on appelle un \textit{endpoint}. L'envoi de chaque tweet peut-être effectué suivant plusieurs protocoles différents comme HTTP pour le plus connu ou encore par un protocole créé spécialement pour l'application via de simples sockets réseaux.\\
+
+  Le principal avantage de cette technique est la rapidité du transfert de l'information. Cet avantage peut se transformer en inconvénient si l'\textit{endpoint} n'est pas capable d'absorber l'information assez rapidement. Au vu de la quantité de tweets envoyés sur Twitter, il est très compliqué de concevoir un système capable de réagir à la masse de données reçues.\\
+
+\subsection{Utilisation de queues de messages}
+\label{sub:Utilisation de queues de messages}
+
+  Afin de résoudre le problème de la masse de tweets reçue par l'\textit{endpoint}, il est possible d'utiliser des queues de messages. Ces queues de messages n'ont pas vocations à traiter les données mais seulement les stocker en attendant la consommation.\\
+
+  Avec cette solution technique, l'action de traitement ne reçoit plus les tweets en temps réel mais peut venir les récupérer dès qu'elle en a besoin dans la queue de messages. Nous ne sommes plus dans une situation de reception mais bien de récupération de l'information.\\
