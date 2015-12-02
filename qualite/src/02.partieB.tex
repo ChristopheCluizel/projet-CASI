@@ -104,12 +104,12 @@ Plusieurs approches techniques existent dans le domaine du streaming de données
 
   Il existe certains problèmes avec les connexions de longue vie avec HTTP, c'est pourquoi l'API de Twitter envoie des \textit{keep-alive} toutes les 30 secondes sous la forme de retour à la ligne.\\
 
-  Afin de mettre en place cette solution, il est nécessaire de prévoir une séparation architecturale entre nos différents modules. Tout d'abord, le modules en charge de la connexion HTTP qui va envoyer le flux de données au module d'analyse du flux. Ce module d'analyse n'est pas en charge du traitement mais de la découpe des données ainsi que de la transformation du JSON en objets. Enfin, ces objets seront envoyés sur le module de traitement qui se chargera de la logique métier.\\
+  Afin de mettre en place cette solution, il est nécessaire de prévoir une séparation architecturale entre nos différents modules. Tout d'abord, le modules en charge de la connexion HTTP qui va envoyer le flux de données au module d'analyse du flux. Ce module d'analyse n'est pas en charge du traitement mais de la découpe des données ainsi que de la transformation du JSON en objets. Enfin, ces objets seront envoyés sur le module de traitement qui se chargera de la logique métier.\\
 
   Certains de ces modules utiliseront des patterns spécifiques.
   \begin{description}
     \item[Module HTTP] Utilisation du pattern \textit{repository} afin d'abstraire la source de données nous permettant dans un futur hypothètique d'utiliser d'autres méthodes de récupération de tweets.
-    \item[Module \textit{parsing}] Utilisation du pattern \textit{adapter} afin de créer une interface entre notre bibliothèque JSON et notre code. Ce pattern n'est qu'à objectif pédagogique. Nous pourrions utiliser la bibliothèque JSON directement car nous n'avons pas d'interface déjà existante à utiliser.
+    \item[Module \textit{parsing}] Utilisation du pattern \textit{adapter} afin de créer une interface entre notre bibliothèque JSON et notre code. Ce pattern n'est qu'à objectif pédagogique. Nous pourrions utiliser la bibliothèque JSON directement car nous n'avons pas d'interface déjà existante à utiliser.
   \end{description}
 
   Cette solution nous permettra de déterminer la différence entre le traitement temps réel et distribué de Spark Streaming et un traitement temps réel non distribué avec l'API HTTP.
@@ -119,10 +119,27 @@ Plusieurs approches techniques existent dans le domaine du streaming de données
 \label{sec:B4}
   Afin de comparer les deux solutions choisies, il convient de mettre en place un certain nombre de métriques de comparaison basées sur les indicateurs énoncés dans la partie~\ref{sec:A6}:
 
-  \begin{itemize}
-    \item ??????
-    \item ??????
-  \end{itemize}
+  \begin{enumerate}
+    \item Time behaviour
+      \begin{itemize}
+        \item Le temps de réponse de l'ensemble de la chaîne
+        \item Le temps de réponse pour des tâches spécifiques (calculs de statistiques par exemple)
+      \end{itemize} \bigskip
+
+    \item Resource utilization
+      \begin{itemize}
+        \item Vitesse de transmission des messages entre l'API Twitter et le prototype
+        \item Nombre d'erreurs liés à la mémoire
+        \item Le pourcentage d'utilisation du CPU pour traiter un certain nombre de tweets
+      \end{itemize} \bigskip
+
+    \item Installability
+      \begin{itemize}
+        \item Nombre d'étapes pour installer le prototype
+        \item Nombre de configurations nécessaires pour pouvoir utiliser le prototype
+        \item Nombre de machines utilisables pour effectuer les traitements de la chaîne
+      \end{itemize} \bigskip
+  \end{enumerate}
 
 
 \section{B5}
