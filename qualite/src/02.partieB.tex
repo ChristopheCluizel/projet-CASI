@@ -38,7 +38,7 @@ Plusieurs approches techniques existent dans le domaine du streaming de données
 \subsection{Traitement des données de manière distribuée}
 \label{sub:Traitement des données de manière distribuée}
 
-  Nos queues de messages sont distribuées pour permettre de meilleures performances et une facilité dans l'amélioration de la puissance de stockage de la queue. Il est très intéressant également de travailler sur un programme de traitement des données distribué. Il serait donc possible d'améliorer les perforances et les temps de calcul de notre programme en ajoutant de nouvelles machines.\\
+  Nos queues de messages sont distribuées pour permettre de meilleures performances et une facilité dans l'amélioration de la puissance de stockage de la queue. Il est très intéressant également de travailler sur un programme de traitement des données distribué. Il serait donc possible d'améliorer les performances et les temps de calcul de notre programme en ajoutant de nouvelles machines.\\
 
   Pour permettre l'utilisation de machines distribuées, il est nécessaire que les données ainsi que l'algorithme soient distribués. Le pattern le plus réputé dans le domaine est celui du Map / Reduce (figure \ref{mapreduce}). Dans ce pattern, deux opérations sont définies: les opérations de type \textit{map} qui s'exécutent en local sur chaque machine et permettent d'exploiter toute la puissance du distribué, et les opérations de type \textit{reduce} qui permettent d'agréger les résultats de toutes les machines sur la machine principale afin de les sauvegarder ou les exploiter. Cette dernière opération n'étant pas distribuée, il faut faire particulièrement attention aux volumes de données remontés par les opérations de type \textit{reduce} afin de prévenir tout problème au niveau de la machine principale.
 
@@ -56,7 +56,7 @@ Plusieurs approches techniques existent dans le domaine du streaming de données
 
   \subsection{Hadoop avec Flume}
   \label{sub:Hadoop avec Flume}
-  D'autres solutions existent pour effectuer des calculs distribués comme le framework Apache Hadoop. Il est également possible de mettre en place notre propre système de queues de messages avec Apache Flume. Il existe une source de données pour Apache Flume correspondant à l'API Twitter développée par Cloudera. Ces deux technologies sont \emph{Open Source} et ne nécessitent donc aucune license.
+  D'autres solutions existent pour effectuer des calculs distribués comme le framework Apache Hadoop. Il est également possible de mettre en place notre propre système de queues de messages avec Apache Flume. Il existe une source de données pour Apache Flume correspondant à l'API Twitter développée par Cloudera. Ces deux technologies sont \emph{Open Source} et ne nécessitent donc aucune licence.
 
   \subsection{API HTTP Twitter Streaming}
   Il existe une solution non distribuée qui consiste à consommer le flux Twitter sous forme d'API HTTP. Twitter propose de télécharger un fichier à distance d'une taille infinie contenant tous les tweets. Plusieurs restrictions s'imposent mais il est possible de gérer ce téléchargement infini grâce à des bibliothèques de client HTTP dans n'importe quel langage. Le client doit simplement pouvoir gérer le traitement en temps réel du résultat de la requête HTTP.
@@ -93,15 +93,15 @@ Plusieurs approches techniques existent dans le domaine du streaming de données
 
   \subsection{API HTTP Twitter Streaming }
   \label{sub:API HTTP Twitter Streaming}
-  Cette seconde solution possède une architecture beaucoup plus simple car elle n'est pas distribuée. La solution consiste à utiliser Apache HTTP Client pour effectuer une requête sur l'API de Streaming HTTP de Twitter afin de traiter les tweets en temps réel. En interne, Twitter utilise une queue de message propre à chaque client (connection HTTP ouverte) il est donc nécessaire de consommer le flux à une vitesse raisonnable car si la queue devenait trop grande, Twitter coupe la connection. Il est également nécessaire de consommer le flux de manière continue afin de prévenir Twitter de couper la connection.\\
+  Cette seconde solution possède une architecture beaucoup plus simple car elle n'est pas distribuée. La solution consiste à utiliser Apache HTTP Client pour effectuer une requête sur l'API de Streaming HTTP de Twitter afin de traiter les tweets en temps réel. En interne, Twitter utilise une queue de message propre à chaque client (connexion HTTP ouverte). Il est donc nécessaire de consommer le flux à une vitesse raisonnable car si la queue devenait trop grande, Twitter coupe la connexion. Il est également nécessaire de consommer le flux de manière continue afin de prévenir Twitter de couper la connexion.\\
 
-  Il existe certains problèmes avec les connections de longue vie avec HTTP, c'est pourquoi l'API de Twitter envoie des \textit{keep-alive} toutes les 30 secondes sous la forme de retour à la ligne.\\
+  Il existe certains problèmes avec les connexions de longue vie avec HTTP, c'est pourquoi l'API de Twitter envoie des \textit{keep-alive} toutes les 30 secondes sous la forme de retour à la ligne.\\
 
-  Afin de mettre en place cette solution, il est nécessaire de prévoir une séparation architecturale entre nos différents modules. Tout d'abord, le modules en charge de la connexion HTTP qui va envoyer le flux de données au module d'analyse du flux. Ce module d'analyse n'est pas en charge du traitement mais de la découpe des données ainsi que de la transformation du JSON en objets. Enfin, ces objets seront envoyés sur le module de traitement qui se chargera de la logique métier.\\
+  Afin de mettre en place cette solution, il est nécessaire de prévoir une séparation architecturale entre nos différents modules. Tout d'abord, le module en charge de la connexion HTTP qui va envoyer le flux de données au module d'analyse du flux. Ce module d'analyse n'est pas en charge du traitement mais de la découpe des données ainsi que de la transformation du JSON en objets. Enfin, ces objets seront envoyés sur le module de traitement qui se chargera de la logique métier.\\
 
   Certains de ces modules utiliseront des patterns spécifiques.
   \begin{description}
-    \item[Module HTTP] Utilisation du pattern \textit{repository} afin d'abstraire la source de données nous permettant dans un futur hypothètique d'utiliser d'autres méthodes de récupération de tweets.
+    \item[Module HTTP] Utilisation du pattern \textit{repository} afin d'abstraire la source de données nous permettant dans un futur hypothétique d'utiliser d'autres méthodes de récupération de tweets.
     \item[Module \textit{parsing}] Utilisation du pattern \textit{adapter} afin de créer une interface entre notre bibliothèque JSON et notre code. Ce pattern n'est qu'à objectif pédagogique. Nous pourrions utiliser la bibliothèque JSON directement car nous n'avons pas d'interface déjà existante à utiliser.
   \end{description}
 
