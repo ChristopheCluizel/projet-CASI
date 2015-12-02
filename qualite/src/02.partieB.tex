@@ -6,7 +6,7 @@ Plusieurs approches techniques existent dans le domaine du streaming de données
 \subsection{Envoi des données pour analyse}
 \label{sub:Envoi des données pour analyse}
 
-  Tout d'abord, la première solution technique existante est l'envoi des données au fur et à mesure de leur arrivée. Dans notre cas : Twitter envoie chaque tweets au fur et à mesure de leur émission sur ce que l'on appelle un \textit{endpoint}. L'envoi de chaque tweet peut-être effectué suivant plusieurs protocoles différents comme HTTP pour le plus connu ou encore par un protocole créé spécialement pour l'application via de simples sockets réseaux.\\
+  Tout d'abord, la première solution technique existante est l'envoi des données au fur et à mesure de leur arrivée. Dans notre cas: Twitter envoie chaque tweets au fur et à mesure de leur émission sur ce que l'on appelle un \textit{endpoint}. L'envoi de chaque tweet peut-être effectué suivant plusieurs protocoles différents comme HTTP pour le plus connu ou encore par un protocole créé spécialement pour l'application via de simples sockets réseaux.\\
 
   \paragraph{Avantage de la solution}
   \label{par:Avantage de la solution}
@@ -25,7 +25,7 @@ Plusieurs approches techniques existent dans le domaine du streaming de données
 
   Afin de résoudre le problème de la masse de tweets reçue par l'\textit{endpoint}, il est possible d'utiliser des queues de messages. Ces queues de messages n'ont pas vocations à traiter les données mais seulement les stocker en attendant la consommation.\\
 
-  Avec cette solution technique, l'action de traitement ne reçoit plus les tweets en temps réel mais peut venir les récupérer dès qu'elle en a besoin dans la queue de messages. Nous ne sommes plus dans une situation de reception mais bien de récupération de l'information.\\
+  Avec cette solution technique, l'action de traitement ne reçoit plus les tweets en temps réel mais peut venir les récupérer dès qu'elle en a besoin dans la queue de messages. Nous ne sommes plus dans une situation de réception mais bien de récupération de l'information.\\
 
   \paragraph{Avantages de la solution}
   \label{par:Avantages de la solution}
@@ -37,9 +37,9 @@ Plusieurs approches techniques existent dans le domaine du streaming de données
 
   \paragraph{Outils pratiques}
   \label{par:Outils pratiques}
-  De nombreux outils de queues de messages existent. Il est possible d'utiliser Apache Flume ou Apache Kafka en auto-hébergé. Il est également possible de profiter de l'offre cloud d'AWS nommé Amazon Kinesis. Ces trois outils fonctionnent de la même manière : une source de données (Twitter dans notre cas), un tuyau stockant les tweets et un puit (notre programme de traitement).
+  De nombreux outils de queues de messages existent. Il est possible d'utiliser Apache Flume ou Apache Kafka en auto-hébergé. Il est également possible de profiter de l'offre cloud d'AWS nommé Amazon Kinesis. Ces trois outils fonctionnent de la même manière: une source de données (Twitter dans notre cas), un tuyau stockant les tweets et un puit (notre programme de traitement).\\
 
-  Ces trois outils sont des queues de messages distribuées. Cela signifie que ces programmes peuvent fonctionner sur plusieurs machines physiques ou virtuelles. Concernant Amazon Kinesis, l'architecture fonctionne par \textit{shards} qui sont des tuyaux distribués. Il faut donc gérer plusieurs consommateurs de la queue différents. Ces consommateurs ne vont pas accèder à toute l'information mais seulement une partie des tweets. Dans notre cas, les tweets sont des messages totalement indépendants cette multitude de consommateurs est donc sans importance. Dans le cas où les messages mis en queue pourraient être liés entre eux, deux solutions sont possibles : aggréger les messages liés avant l'insertion dans la queue ou choisir une clé de partitionnement permettant d'insérer les messages liés dans le même tuyau et ainsi les traiter avec le même consommateur.
+  Ces trois outils sont des queues de messages distribuées. Cela signifie que ces programmes peuvent fonctionner sur plusieurs machines physiques ou virtuelles. Concernant Amazon Kinesis, l'architecture fonctionne par \textit{shards} qui sont des tuyaux distribués. Il faut donc gérer plusieurs consommateurs de la queue différents. Ces consommateurs ne vont pas accéder à toute l'information mais seulement une partie des tweets. Dans notre cas, les tweets sont des événements totalement indépendants cette multitude de consommateurs est donc sans importance. Dans le cas où les événements mis en queue pourrait être liés entre eux, deux solutions sont possibles: agréger les messages avant l'insertion dans la queue ou choisir une clé de partitionnement permettant d'insérer les messages liés dans le même tuyau et ainsi les traiter avec le même consommateur.
 
 \subsection{Traitement des données de manière distribuée}
 \label{sub:Traitement des données de manière distribuée}
