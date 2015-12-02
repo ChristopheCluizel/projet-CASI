@@ -33,7 +33,10 @@ Plusieurs approches techniques existent dans le domaine du streaming de données
 
   \paragraph{Inconvénients de la solution}
   \label{par:Inconvénients de la solution}
-  L'utilisation de la queue est tout de même limité en terme d'espace de stockage. En effet, si le retard accumulé par le traitement devient trop important et qu'il devient impossible de stocker les tweets dans la queue (par manque de RAM pour une queue en mémoire vive ou d'espace disque pour une queue persistée sur disque), il est nécessaire de supprimer des anciens tweets ou de refuser des nouveaux tweets. Une information est donc perdue.
+  L'utilisation de la queue est tout de même limitée en terme d'espace de stockage. En effet, si le retard accumulé par le traitement devient trop important et qu'il devient impossible de stocker les tweets dans la queue (par manque de RAM pour une queue en mémoire vive ou d'espace disque pour une queue persistée sur disque), il est nécessaire de supprimer des anciens tweets ou de refuser des nouveaux tweets. Une information est donc perdue.
 
   \paragraph{Outils pratiques}
   \label{par:Outils pratiques}
+  De nombreux outils de queues de messages existent. Il est possible d'utiliser Apache Flume ou Apache Kafka en auto-hébergé. Il est également possible de profiter de l'offre cloud d'AWS nommé Amazon Kinesis. Ces trois outils fonctionnent de la même manière : une source de données (Twitter dans notre cas), un tuyau stockant les tweets et un puit (notre programme de traitement).\\
+
+  Ces trois outils sont des queues de messages distribuées. Cela signifie que ces programmes peuvent fonctionner sur plusieurs machines physiques ou virtuelles. Concernant Amazon Kinesis, l'architecture fonctionne par \textit{shards} qui sont des tuyaux distribués. Il faut donc gérer plusieurs consommateurs de la queue différents. Ces consommateurs ne vont pas accèder à toute l'information mais seulement une partie des tweets. Dans notre cas, les tweets sont des évènements totalement indépendants cette multitude de consommateurs est donc sans importance. Dans le cas où les évènements mis en queue pourrait être liés entre eux, deux solutions sont possibles : aggréger les messages avant l'insertion dans la queue ou choisir une clé de partitionnement permettant d'insérer les messages liés dans le même tuyau et ainsi les traiter avec le même consommateur. 
