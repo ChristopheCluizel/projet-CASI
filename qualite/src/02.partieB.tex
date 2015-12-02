@@ -64,3 +64,36 @@ Plusieurs approches techniques existent dans le domaine du streaming de données
 
 
   \subsection{??? En http à la main ?????}
+
+
+\section{B3}
+\label{sec:B3}
+  \subsection{Spark Streaming}
+    Afin de gérer le flux continu de données, Spark streaming va discrétiser le flux en \emph{batch}, c'est à dire en tranches d'informations. Ensuite, Spark va pouvoir effectuer les traitements ou calculs sur chacun de ces \emph{batch} de données de manière individuelle. La figure~\ref{streaming_flow} illustre ce découpage de flux de données. \\
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/streaming-flow.png}
+    \caption{Découpage du flux de données par Spark Streaming}
+    \label{streaming_flow}
+  \end{figure}
+
+  Le flux n'est donc plus continue mais représenté par une couche d'abstraction appelée \emph{Discretized Stream} ou \emph{Dstream}. Chaque \emph{batch} peut être traité de manière indépendante et donc parallélisé. Par exemple, si l'on cherche à récupérer les mots d'un flux de lignes de texte, Spark va créer des \emph{batch} avec un certain nombre de lignes qui seront ensuite analysées individuellement pour obtenir les mots qui composent ces lignes de texte. La figure~\ref{streaming_dstream_get_word} présente cet exemple. Un grand nombre d'opérations peuvent être réalisés sur ces \emph{batch} de données, comme par exemple \emph{map}, \emph{reduce}, \emph{filter}, \emph{union}, \emph{count}… \\
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/streaming-dstream-ops.png}
+    \caption{Exemple de récupération de mots par \emph{batch}}
+    \label{streaming_dstream_get_word}
+  \end{figure}
+
+  Le flux étant discrétiser, Spark Streaming fournit des paramètres afin de régler la taille de la fenêtre de discrétisation, ainsi que l'intervalle entre deux lancements de calculs. Sur la figure~\ref{principe_de_fenetre_spark_streaming}, nous pouvons observer une taille de fenêtre d'une unité de temps entre chaque \emph{batch} (en vert), une taille de fenêtre de discrétisation regroupant les \emph{batch} de trois (en jaune) et un intervalle de deux entre chaque lancements de calculs sur les fenêtres de discrétisation (en rouge).
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/streaming-dstream-window.png}
+    \caption{Principe de fenêtrage}
+    \label{principe_de_fenetre_spark_streaming}
+  \end{figure}
+
+
