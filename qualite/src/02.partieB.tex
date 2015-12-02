@@ -61,10 +61,12 @@ Plusieurs approches techniques existent dans le domaine du streaming de données
   \subsection{Spark Streaming}
   Afin de garantir un traitement distribué, il est possible d'utiliser le framework Apache Spark et plus précisément Spark Streaming pour traiter le flux de messages en temps réel ou de façon continue. Cet outil possède une bibliothèque (\emph{spark-streaming-twitter\_2.10}) permettant de communiquer directement avec l'API de Twitter. Il n'y a aucune restriction pour l'utilisation d'Apache Spark et sa bibliothèque, car ce sont des logiciels \emph{Open Source}.
 
+  \subsection{Hadoop avec Flume}
+  \label{sub:Hadoop avec Flume}
+  D'autres solutions existent pour effectuer des calculs distribués comme le framework Apache Hadoop. Il est également possible de mettre en place notre propre système de queues de messages avec Apache Flume. Il existe une source de données pour Apache Flume correspondant à l'API Twitter développée par Cloudera. Ces deux technologies sont \emph{Open Source} et ne nécessitent donc aucune license.
 
-
-  \subsection{??? En http à la main ?????}
-
+  \subsection{API HTTP Twitter Streaming}
+  Il existe une solution non distribuée qui consiste à consommer le flux Twitter sous forme d'API HTTP. Twitter propose de télécharger un fichier à distance d'une taille infinie contenant tous les tweets. Plusieurs restrictions s'imposent mais il est possible de gérer ce téléchargement infini grâce à des bibliothèques de client HTTP dans n'importe quel langage. Le client doit simplement pouvoir gérer le traitement en temps réel du résultat de la requête HTTP.
 
 \section{B3}
 \label{sec:B3}
@@ -95,6 +97,10 @@ Plusieurs approches techniques existent dans le domaine du streaming de données
     \caption{Principe de fenêtrage}
     \label{principe_de_fenetre_spark_streaming}
   \end{figure}
+
+  \subsection{API HTTP Twitter Streaming }
+  \label{sub:API HTTP Twitter Streaming}
+  Cette seconde solution possède une architecture beaucoup plus simple car elle n'est pas distribuée.
 
 
 \section{B4}
