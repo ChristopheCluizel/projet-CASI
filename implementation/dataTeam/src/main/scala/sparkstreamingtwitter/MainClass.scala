@@ -27,19 +27,35 @@ object MainClass {
     val stream = TwitterUtils.createStream(ssc, None)
 
     val tweets: DStream[(Date, User, String)] = stream.map { status => (status.getCreatedAt, status.getUser, status.getText) }
+    val tic = System.currentTimeMillis()
     tweets.foreachRDD { rdd =>
       val userTweet: RDD[(String, Int)] = rdd.map {
         case (date, user, text) =>
           user.getLang -> text.length
       }
-      val dataGrouped = userTweet.groupByKey()
-      val languageInfo = dataGrouped.map { case (language, textLengthList) =>
+      val dataGrouped: RDD[(String, Iterable[Int])] = userTweet.groupByKey()
+      val languageInfo: RDD[(String, (Int, Double))] = dataGrouped.map { case (language, textLengthList) =>
         language ->(textLengthList.size, textLengthList.sum / textLengthList.size.toDouble)
       }
-      println(languageInfo.collect mkString("", "\n", "\n-------"))
+      val toc = System.currentTimeMillis() - tic
+
+      displayHeader()
+      displayResults(languageInfo, toc)
     }
 
     ssc.start()
     ssc.awaitTermination()
+  }
+
+  def displayHeader(): Unit = {
+    println("\n------------")
+    println("Nationality -> (nbTweets, averageTweetLength)")
+  }
+
+  def displayResults(rdd: RDD[(String, (Int, Double))], duration: Long): Unit = {
+    rdd.foreach { case (language, (nbTweets, meanTweetSize)) =>
+      println( s"""$language -> ($nbTweets, $meanTweetSize)""")
+    }
+    println( s"""Execution time: $duration ms""")
   }
 }
