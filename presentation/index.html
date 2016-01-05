@@ -44,7 +44,7 @@
 					<h1>Projet CASI</h1>
 					<h3>Big Data and Tweet Streaming</h3>
 					<p>
-						<small>Équipe DataTeam <br><a href="https://twitter.com/ChristopheCluizel">Christophe Cluizel</a> et <a href="http://www.thibaud-dauce.fr">Thibaud Dauce</a></small>
+						<small>Équipe DataTeam <br><a href="http://www.christophe-cluizel.ovh/">Christophe Cluizel</a> et <a href="http://www.thibaud-dauce.fr">Thibaud Dauce</a></small>
 					</p>
 				</section>
 
@@ -104,7 +104,24 @@
 				<section>
 					<h2>Deux solutions possibles</h2>
 
-					<img src="images/streaming-flow.png" alt="Streaming flow" />
+					<img src="images/WBS.png" alt="WBS" />
+				</section>
+
+				<section>
+					<h2>Métriques de comparaison</h2>
+
+					<ul>
+						<li>Le temps de réponse de l'ensemble de la chaîne</li>
+						<li>Le temps de réponse de la tâche</li>
+
+						<li>Vitesse de transmission des missions entre l'API Twitter et le prototype</li>
+						<li>Nombre d'erreurs liées à la mémoire</li>
+						<li>Pourcentage d'utilisation du CPU</li>
+
+						<li>Nombre d'étape pour installer le prototype</li>
+						<li>Nombre de configurations nécessaires pour pouvoir utiliser le prototype</li>
+						<li>Nombre de machines utilisables pour effectuer les traîtements de la chaîne</li>
+					</ul>
 				</section>
 
 				<section>
@@ -127,12 +144,58 @@
 						<li><em>Scaling</em> facile et intégré</li>
 						<li>Traitement par lots</li>
 					</ul>
+
+					<img src="images/streaming-flow.png" alt="Streaming flow" />
+				</section>
+
+				<section>
+					<h2>Démo</h2>
+
+					<video controls src="images/screencast.ogv"></video>
 				</section>
 
 				<section>
 					<h2>Résultats</h2>
 
-					<video controls src="images/screencast.ogv"></video>
+					<table>
+						<thead>
+							<tr>
+								<th>Lot</th>
+								<th>Nombre de tweets</th>
+								<th>Temps de traitement</th>
+								<th>Temps d'éxécution</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>39 tweets</td>
+								<td>9ms</td>
+								<td>28,1s</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>27 tweets</td>
+								<td>21ms</td>
+								<td>29,2s</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>49 tweets</td>
+								<td>19ms</td>
+								<td>30,2s</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<br>
+					Traitement de 30,59 tweets par seconde, 10% d'utilisation du CPU (2 x 2.00GHz), aucune tâche échouée.
+
+				</section>
+
+				<section>
+					<h2>Conclusion</h2>
+					<h3>Posez vos questions !</h3>
 				</section>
 
 			</div>
