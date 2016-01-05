@@ -1,11 +1,11 @@
 \section{Résultats des métriques}
-  L'intervalle entre chaque batch a été fixé à 1 seconde. Ainsi, Spark va récupérer pendant 1 seconde les tweets grâce à l'API de Twitter, effectuer les opérations de statistiques sur ces tweets et restituer l'information, dans notre cas, sous forme d'affichage à l'écran. Un diagramme de déploiement est présenté à la figure \ref{fig:digramme de déploiement}.
+  L'intervalle entre chaque batch a été fixé à 1 seconde. Ainsi, Spark va récupérer pendant 1 seconde les tweets grâce à l'API de Twitter, effectuer les opérations de statistiques sur ces tweets et restituer l'information, dans notre cas, sous forme d'affichage à l'écran. Un diagramme de déploiement est présenté à la figure \ref{fig:diagramme de déploiement}.
 
     \begin{figure}
         \centering
         \includegraphics{images/diagramme-deploiement.png}
         \caption{Diagramme de déploiement}
-        \label{fig:digramme de déploiement}
+        \label{fig:diagramme de déploiement}
     \end{figure}
 
   \subsection{Time behaviour}
@@ -18,7 +18,7 @@
       \label{fig:resultats_stat_tweet}
     \end{figure}
 
-    Nous pouvons observer trois batch différents. Cela correspond donc à un temps d'exécution théorique de streaming de trois secondes (car nous avions spécifié un intervalle de 1 seconde comme paramètre). Cela est confirmer d'un point de vue exécution grâce à la métrique \emph{Execution time} présent sur la figure~\ref{fig:resultats_stat_tweet}. Nous pouvons remarquer que cette métrique prend respectivement les valeurs 28151, 29168 et 30164 millisecondes. Il y a donc bien 1 seconde entre chaque retour de résultats. \\
+    Nous pouvons observer trois batch différents. Cela correspond donc à un temps d'exécution théorique de streaming de trois secondes (car nous avions spécifié un intervalle de 1 seconde comme paramètre). Cela est confirmé d'un point de vue exécution grâce à la métrique \emph{Execution time} présent sur la figure~\ref{fig:resultats_stat_tweet}. Nous pouvons remarquer que cette métrique prend respectivement les valeurs 28151, 29168 et 30164 millisecondes. Il y a donc bien 1 seconde entre chaque retour de résultats. \\
 
     \begin{figure}
       \centering
@@ -36,7 +36,7 @@
       Une des métriques d'utilisation des ressources est la vitesse de transmission des messages entre l'API de Twitter et notre prototype. La figure~\ref{fig:statistiques_spark_streaming_ui} présente la catégorie \emph{Input Rate} qui correspond à la moyenne du nombre de Tweets par seconde. Cette valeur pour notre prototype est de 30,59 tweets par seconde.
 
     \subsubsection{Nombre d'erreurs}
-      Une autre métrique était le nombre d'erreurs liés à la mémoire. La figure~\ref{fig:executor_spark_streaming_ui} présente des statistiques sur la mémoire des exécuteurs. Nous pouvons constater que la colonne \emph{Failed Tasks} a une valeur nulle et donc le prototype n'a pas eu d'erreur de mémoire.
+      Une autre métrique était le nombre d'erreurs liées à la mémoire. La figure~\ref{fig:executor_spark_streaming_ui} présente des statistiques sur la mémoire des exécuteurs. Nous pouvons constater que la colonne \emph{Failed Tasks} a une valeur nulle et donc le prototype n'a pas eu d'erreur de mémoire.
 
       \begin{figure}
         \centering
@@ -50,7 +50,7 @@
 
   \subsection{Installability}
     \subsubsection{Installation du prototype}
-      Afin d'utiliser le prototype, il est nécessaire d'installer 3 outils:
+      Afin d'utiliser le prototype, il est nécessaire d'installer trois outils :
       \begin{itemize}
         \item Scala (\url{http://scala-lang.org/}), le langage utilisé pour l'implémentation du prototype
         \item Spark (\url{https://spark.apache.org/}), l'outil permettant le streaming avec l'API Twitter
