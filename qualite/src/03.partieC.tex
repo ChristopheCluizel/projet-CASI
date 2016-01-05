@@ -1,5 +1,12 @@
 \section{Résultats des métriques}
-  L'intervalle entre chaque batch a été fixé à 1 seconde. Ainsi, Spark va récupérer pendant 1 seconde les tweets grâce à l'API de Twitter, effectuer les opérations de statistiques sur ces tweets et restituer l'information, dans notre cas, sous forme d'affichage à l'écran.
+  L'intervalle entre chaque batch a été fixé à 1 seconde. Ainsi, Spark va récupérer pendant 1 seconde les tweets grâce à l'API de Twitter, effectuer les opérations de statistiques sur ces tweets et restituer l'information, dans notre cas, sous forme d'affichage à l'écran. Un diagramme de déploiement est présenté à la figure \ref{fig:digramme de déploiement}.
+
+    \begin{figure}
+        \centering
+        \includegraphics{images/diagramme-deploiement.png}
+        \caption{Diagramme de déploiement}
+        \label{fig:digramme de déploiement}
+    \end{figure}
 
   \subsection{Time behaviour}
     Une des catégories de métriques est la notion de temps. En effet, pour l'analyse en temps réel, il est nécessaire de connaître les durées de chaque action afin de déterminer d'éventuel goulot d'étranglement. Pour notre prototype, nous avons mis en place une métrique sur la durée pour effectuer un batch complet, à savoir la récupération des tweets et le calcul de statistiques sur celui-ci. Une deuxième métrique a été mise en place dans le but de relever la durée nécessaire seulement pour réaliser les statistiques sur les tweets d'un batch. La figure~\ref{fig:resultats_stat_tweet} présente les résultats obtenus. \\

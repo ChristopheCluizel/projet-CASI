@@ -1,0 +1,18 @@
+@startuml
+
+node Twitter {
+    database Database
+    component Queue
+
+    Database --> Queue
+}
+
+node Spark {
+    component SparkStreaming
+    component SparkEngine
+
+    Queue --> SparkStreaming
+    SparkStreaming --> SparkEngine
+}
+
+@enduml
